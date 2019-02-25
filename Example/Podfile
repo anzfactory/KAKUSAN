@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'KAKUSAN_Example' do
+  pod 'KAKUSAN', :path => '../'
+
+  target 'KAKUSAN_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
