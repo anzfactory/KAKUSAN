@@ -5,11 +5,18 @@
 [![License](https://img.shields.io/cocoapods/l/KAKUSAN.svg?style=flat)](https://cocoapods.org/pods/KAKUSAN)
 [![Platform](https://img.shields.io/cocoapods/p/KAKUSAN.svg?style=flat)](https://cocoapods.org/pods/KAKUSAN)
 
+Automatically detect when a user takes a screenshot, and share that screenshot.  
+(with "UIActivityViewController")
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+- Xcode v10.1
+- Swift v4.2
+- iOS 11.0+
 
 ## Installation
 
