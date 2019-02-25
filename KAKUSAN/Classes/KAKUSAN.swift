@@ -30,6 +30,11 @@ public class KAKUSAN {
         NotificationCenter.default.removeObserver(self)
     }
     
+    public func configure(_ config: Config) {
+        
+        self.config = config
+    }
+    
     public func start() {
         
         isStarted = true
@@ -99,14 +104,14 @@ extension KAKUSAN {
 
 extension KAKUSAN {
     
-    struct Config {
+    public struct Config {
         
-        var text: String?
-        var url: URL?
+        public var text: String?
+        public var url: URL?
         
-        var alert: Alert
+        public var alert: Alert
         
-        init(text: String?, url: URL?, alert: Alert = Alert()) {
+        public init(text: String?, url: URL?, alert: Alert = Alert()) {
             
             self.text = text
             self.url = url
@@ -117,19 +122,23 @@ extension KAKUSAN {
 
 extension KAKUSAN.Config {
     
-    struct Alert {
+    public struct Alert {
         
-        var title: String? = "Connfirm"
-        var message: String? = "Share screenshot?"
-        var action: Action = Action()
+        public var title: String? = "Connfirm"
+        public var message: String? = "Share screenshot?"
+        public var action: Action = Action()
+        
+        public init() { }
     }
 }
 
 extension KAKUSAN.Config.Alert {
     
-    struct Action {
+    public struct Action {
         
-        var positiveText: String = "Share"
-        var negativeText: String = "Not now"
+        public var positiveText: String = "Share"
+        public var negativeText: String = "Not now"
+        
+        public init() { }
     }
 }

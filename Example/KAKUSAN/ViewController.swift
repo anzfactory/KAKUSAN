@@ -18,6 +18,13 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        var config = KAKUSAN.Config(text: "Share Text", url: URL(string: "https://example.com/"))
+        config.alert.title = "Share!"
+        config.alert.message = "Would you like to share screenshot?"
+        config.alert.action.positiveText = "Done"
+        config.alert.action.negativeText = "Cancel"
+//        KAKUSAN.shared.configure(config)
+        
         KAKUSAN.shared.start()
     }
     

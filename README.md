@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/KAKUSAN.svg?style=flat)](https://cocoapods.org/pods/KAKUSAN)
 [![Platform](https://img.shields.io/cocoapods/p/KAKUSAN.svg?style=flat)](https://cocoapods.org/pods/KAKUSAN)
 
+<iframe src="https://giphy.com/embed/2sXFgtRYsU06xk5XPm" width="272" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 Automatically detect when a user takes a screenshot, and share that screenshot.  
 (with "UIActivityViewController")
 
@@ -16,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - Xcode v10.1
 - Swift v4.2
-- iOS 11.0+
+- iOS v11.0+
 
 ## Installation
 
@@ -25,6 +27,23 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'KAKUSAN'
+```
+
+## Usage
+
+```swift
+KAKUSAN.shared.start()
+```
+
+### Coniguration
+
+```swift
+var config = KAKUSAN.Config(text: "Share Text", url: URL(string: "https://example.com/"))
+config.alert.title = "Share!"
+config.alert.message = "Would you like to share screenshot?"
+config.alert.action.positiveText = "Done"
+config.alert.action.negativeText = "Cancel"
+KAKUSAN.shared.configure(config)
 ```
 
 ## Author
