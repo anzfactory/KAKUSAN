@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/KAKUSAN.svg?style=flat)](https://cocoapods.org/pods/KAKUSAN)
 [![Platform](https://img.shields.io/cocoapods/p/KAKUSAN.svg?style=flat)](https://cocoapods.org/pods/KAKUSAN)
 
-<iframe src="https://giphy.com/embed/2sXFgtRYsU06xk5XPm" width="272" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+![ANZSingleImageViewer](https://github.com/anzfactory/KAKUSAN/blob/master/Screenshots/KAKUSAN.gif)
 
 Automatically detect when a user takes a screenshot, and share that screenshot.  
 (with "UIActivityViewController")
