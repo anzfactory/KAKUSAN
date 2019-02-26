@@ -58,11 +58,21 @@ extension KAKUSAN {
             return
         }
         
-        let alertVC = UIAlertController(title: config.alert.title, message: config.alert.message, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: config.alert.title, message: config.alert.message, preferredStyle: config.alert.style)
         alertVC.addAction(UIAlertAction(title: config.alert.action.positiveText, style: .default, handler: { _ in
             self.takeScreenshot()
         }))
         alertVC.addAction(UIAlertAction(title: config.alert.action.negativeText, style: .cancel, handler: nil))
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            alertVC.popoverPresentationController?.sourceView = topViewController.view
+            alertVC.popoverPresentationController?.sourceRect = CGRect(
+                origin: CGPoint(x: topViewController.view.bounds.width * 0.5, y: topViewController.view.bounds.height),
+                size: .zero
+            )
+            alertVC.popoverPresentationController?.permittedArrowDirections = []
+        }
+        
         topViewController.present(alertVC, animated: true, completion: nil)
     }
     
@@ -126,6 +136,7 @@ extension KAKUSAN.Config {
         
         public var title: String? = "Connfirm"
         public var message: String? = "Share screenshot?"
+        public var style: UIAlertController.Style = .alert
         public var action: Action = Action()
         
         public init() { }
