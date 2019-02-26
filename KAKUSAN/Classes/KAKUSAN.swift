@@ -63,6 +63,16 @@ extension KAKUSAN {
             self.takeScreenshot()
         }))
         alertVC.addAction(UIAlertAction(title: config.alert.action.negativeText, style: .cancel, handler: nil))
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            alertVC.popoverPresentationController?.sourceView = topViewController.view
+            alertVC.popoverPresentationController?.sourceRect = CGRect(
+                origin: CGPoint(x: topViewController.view.bounds.width * 0.5, y: topViewController.view.bounds.height),
+                size: .zero
+            )
+            alertVC.popoverPresentationController?.permittedArrowDirections = []
+        }
+        
         topViewController.present(alertVC, animated: true, completion: nil)
     }
     

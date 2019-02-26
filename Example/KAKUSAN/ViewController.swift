@@ -29,6 +29,16 @@ class ViewController: UIViewController {
         KAKUSAN.shared.start()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        #if targetEnvironment(simulator)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                NotificationCenter.default.post(name: UIApplication.userDidTakeScreenshotNotification, object: nil)
+            }
+        #endif
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
