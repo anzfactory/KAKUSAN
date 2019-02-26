@@ -41,6 +41,7 @@ KAKUSAN.shared.start()
 var config = KAKUSAN.Config(text: "Share Text", url: URL(string: "https://example.com/"))
 config.alert.title = "Share!"
 config.alert.message = "Would you like to share screenshot?"
+config.alert.style = .actionSheet
 config.alert.action.positiveText = "Done"
 config.alert.action.negativeText = "Cancel"
 KAKUSAN.shared.configure(config)
