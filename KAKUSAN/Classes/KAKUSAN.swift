@@ -11,8 +11,6 @@ public class KAKUSAN {
     
     public static let shared: KAKUSAN = KAKUSAN()
     
-    private let userDidDenyUserDefaultsKey: String = "KAKUSANN.userDidDenyUserDefaultsKey"
-    
     private var config: Config = Config(text: nil, url: nil)
     private var isStarted: Bool = false
     
