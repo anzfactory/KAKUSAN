@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00AAA02138A3B2F3DA069633 /* KAKUSAN.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KAKUSAN.podspec; path = ../KAKUSAN.podspec; sourceTree = "<group>"; };
+		00AAA02138A3B2F3DA069633 /* KAKUSAN.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KAKUSAN.podspec; path = ../KAKUSAN.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		447AD029FB53244F46CB35EA /* Pods-KAKUSAN_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KAKUSAN_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KAKUSAN_Example/Pods-KAKUSAN_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4A485D26FE657869701F5A1B /* Pods-KAKUSAN_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KAKUSAN_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KAKUSAN_Tests/Pods-KAKUSAN_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* KAKUSAN_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KAKUSAN_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
