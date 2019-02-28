@@ -11,7 +11,7 @@ public class KAKUSAN {
     
     public static let shared: KAKUSAN = KAKUSAN()
     
-    private let userDidDenyUserDefaultsKey: String = "KAKUSANN.userDidDenyUserDefaultsKey"
+    public weak var confirmationDelegate: KAKUSANConfirmationDelegate?
     
     private var config: Config = Config(text: nil, url: nil)
     private var isStarted: Bool = false
@@ -54,6 +54,31 @@ extension KAKUSAN {
             return
         }
         
+        if self.confirmationDelegate == nil {
+            confirmWithAlertController()
+        } else {
+            confirmWithConfirmationDelegate()
+        }
+    }
+    
+    private func confirmWithConfirmationDelegate() {
+        
+        guard let screenshot = ScreenshotMaker.make() else {
+            return
+        }
+        
+        self.confirmationDelegate?.kakusanConfirmation(screenshot: screenshot, handler: { [weak self] (body) in
+            
+            guard let this = self else {
+                return
+            }
+            
+            this.shareScreenshot(screenshot, body: body ?? this.config.body)
+        })
+    }
+    
+    private func confirmWithAlertController() {
+        
         guard let topViewController = VCFinder.findTopViewController() else {
             return
         }
@@ -82,20 +107,20 @@ extension KAKUSAN {
             return
         }
         
-        shareScreenshot(screenshot)
+        shareScreenshot(screenshot, body: config.body)
     }
     
-    private func shareScreenshot(_ screenshot: UIImage) {
+    private func shareScreenshot(_ screenshot: UIImage, body: Body) {
         
         guard let topViewController = VCFinder.findTopViewController() else {
             return
         }
         
         var items: [Any] = [screenshot]
-        if let text = config.text {
+        if let text = body.text {
             items.append(text)
         }
-        if let url = config.url {
+        if let url = body.url {
             items.append(url)
         }
         
@@ -116,16 +141,27 @@ extension KAKUSAN {
     
     public struct Config {
         
-        public var text: String?
-        public var url: URL?
-        
         public var alert: Alert
+        public var body: Body
         
         public init(text: String?, url: URL?, alert: Alert = Alert()) {
             
+            body = Body(text: text, url: url)
+            self.alert = alert
+        }
+    }
+}
+
+extension KAKUSAN {
+    
+    public struct Body {
+        
+        public var text: String?
+        public var url: URL?
+        
+        public init(text: String?, url: URL?) {
             self.text = text
             self.url = url
-            self.alert = alert
         }
     }
 }
