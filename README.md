@@ -47,6 +47,20 @@ config.alert.action.negativeText = "Cancel"
 KAKUSAN.shared.configure(config)
 ```
 
+### Customize confirmation dialog
+
+```swift
+KAKUSAN.shared.confirmationDelegate = self
+
+// ConfirmationDelegate
+extension ViewController: KAKUSANConfirmationDelegate {
+    
+    func kakusanConfirmation(screenshot: UIImage, handler: @escaping KAKUSANHandler) {
+        // show custom dialog
+    }
+}
+```
+
 ## Author
 
 anzfactory, anz.factory@gmail.com
