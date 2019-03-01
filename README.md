@@ -44,6 +44,11 @@ config.alert.message = "Would you like to share screenshot?"
 config.alert.style = .actionSheet
 config.alert.action.positiveText = "Done"
 config.alert.action.negativeText = "Cancel"
+config.watermark = KAKUSAN.Watermark(
+    image: UIImage(named: "watermark")!,
+    alpha: 0.4,
+    position: .bottomRight(padding: 16.0)
+)
 KAKUSAN.shared.configure(config)
 ```
 

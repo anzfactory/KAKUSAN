@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         config.watermark = KAKUSAN.Watermark(
             image: UIImage(named: "anzfactory")!,
             alpha: 0.8,
-            position: .bottomRight(padding: 40.0)
+            position: .bottomRight(padding: 16.0)
         )
 //        KAKUSAN.shared.configure(config)
         
