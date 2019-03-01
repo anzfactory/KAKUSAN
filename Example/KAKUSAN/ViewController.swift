@@ -27,6 +27,12 @@ class ViewController: UIViewController {
         config.alert.style = .actionSheet
         config.alert.action.positiveText = "Done"
         config.alert.action.negativeText = "Cancel"
+        // set watermark
+        config.watermark = KAKUSAN.Watermark(
+            image: UIImage(named: "anzfactory")!,
+            alpha: 0.8,
+            position: .bottomRight(padding: 40.0)
+        )
 //        KAKUSAN.shared.configure(config)
         
         // use custom view instead of UIAlertController

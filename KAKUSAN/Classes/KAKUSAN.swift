@@ -63,7 +63,7 @@ extension KAKUSAN {
     
     private func confirmWithConfirmationDelegate() {
         
-        guard let screenshot = ScreenshotMaker.make() else {
+        guard let screenshot = ScreenshotMaker.make(watermark: config.watermark) else {
             return
         }
         
@@ -103,7 +103,7 @@ extension KAKUSAN {
     
     private func takeScreenshot() {
         
-        guard let screenshot = ScreenshotMaker.make() else {
+        guard let screenshot = ScreenshotMaker.make(watermark: config.watermark) else {
             return
         }
         
@@ -143,8 +143,9 @@ extension KAKUSAN {
         
         public var alert: Alert
         public var body: Body
+        public var watermark: Watermark?
         
-        public init(text: String?, url: URL?, alert: Alert = Alert()) {
+        public init(text: String?, url: URL?, watermark: Watermark? = nil, alert: Alert = Alert()) {
             
             body = Body(text: text, url: url)
             self.alert = alert
@@ -187,5 +188,54 @@ extension KAKUSAN.Config.Alert {
         public var negativeText: String = "Not now"
         
         public init() { }
+    }
+}
+
+extension KAKUSAN {
+    
+    public struct Watermark {
+        
+        public var alpha: CGFloat
+        public var image: UIImage
+        public var position: Position
+        
+        public init(image: UIImage, alpha: CGFloat = 1.0, position: Position = .bottomRight(padding: 16.0)) {
+            
+            self.image = image
+            self.alpha = alpha
+            self.position = position
+        }
+    }
+}
+
+extension KAKUSAN.Watermark {
+    
+    public enum Position {
+        
+        case topLeft(padding: CGFloat)
+        case topRight(padding: CGFloat)
+        case bottomLeft(padding: CGFloat)
+        case bottomRight(padding: CGFloat)
+        
+        var padding: CGFloat {
+            
+            switch self {
+            case .topLeft(let value), .topRight(let value), .bottomLeft(let value), .bottomRight(let value):
+                return value
+            }
+        }
+    }
+}
+
+extension KAKUSAN.Watermark.Position: Equatable {
+    
+    public static func == (lhs: KAKUSAN.Watermark.Position, rhs: KAKUSAN.Watermark.Position) -> Bool {
+        
+        switch (lhs, rhs) {
+        case (.topLeft, topLeft), (.topRight, .topRight), (.bottomLeft, .bottomRight), (.bottomRight, .bottomRight):
+            return lhs.padding == rhs.padding
+        default:
+            return false
+        }
     }
 }
