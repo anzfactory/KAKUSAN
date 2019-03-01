@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KAKUSAN'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'Automatically detect when a user takes a screenshot, and share that screenshot.'
   s.description      = <<-DESC
 Automatically detect when a user takes a screenshot, and share that screenshot.
