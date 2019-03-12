@@ -18,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - Xcode v10.1
 - Swift v4.2
-- iOS v11.0+
+- iOS v10.0+
 
 ## Installation
 
@@ -42,6 +42,7 @@ var config = KAKUSAN.Config(text: "Share Text", url: URL(string: "https://exampl
 config.alert.title = "Share!"
 config.alert.message = "Would you like to share screenshot?"
 config.alert.style = .actionSheet
+config.alert.delay = 2.0
 config.alert.action.positiveText = "Done"
 config.alert.action.negativeText = "Cancel"
 config.watermark = KAKUSAN.Watermark(

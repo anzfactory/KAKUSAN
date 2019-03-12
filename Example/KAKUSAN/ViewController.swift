@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         var config = KAKUSAN.Config(text: "Share Text", url: URL(string: "https://example.com/"))
         config.alert.title = "Share!"
         config.alert.message = "Would you like to share screenshot?"
+        config.alert.delay = 2.0
         config.alert.style = .actionSheet
         config.alert.action.positiveText = "Done"
         config.alert.action.negativeText = "Cancel"
